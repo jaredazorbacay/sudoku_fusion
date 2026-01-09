@@ -94,8 +94,8 @@ bool SudokuAntSystem::Solve(const Board& puzzle, float maxTime )
 				solTime = solutionTimer.Elapsed();
 			}
 		}
-		if ((iter % 100) == 0 and iter !=0){
-			SudokuSA sa(bestSol);
+		if ((iter % saFreq) == 0 and iter !=0){
+			SudokuSA sa(bestSol, coolingRate, stoppingTemp, initialTemp);	
 			int cost = sa.Anneal();
 			bestSol.Copy(sa.GetSolution());
 			if (cost == 0){

@@ -128,13 +128,21 @@ int main( int argc, char *argv[] )
 
 	int algorithm = a.GetArg("alg", 0);
 	int timeOutSecs = a.GetArg("timeout", 10);
+	//Ant parameters
 	int nAnts = a.GetArg("ants", 10);
 	float q0 = a.GetArg("q0", 0.9f);
 	float rho = a.GetArg("rho", 0.9f);
 	float evap = a.GetArg("evap", 0.005f );
+	//SA parameters
+	double coolingRate = a.GetArg("alpha", 0.995);
+    double stoppingTemp = a.GetArg("t1", 0.01);
+    double initialTemp = a.GetArg("t0", 1.5);
+	int saFreq = a.GetArg("saFreq", 50);
+
 	bool blank = a.GetArg("blank", false );
 	bool verbose = a.GetArg("verbose", 0);
 	bool showInitial = a.GetArg("showinitial", 0);
+	
 	bool success;
 
 	float solTime;
@@ -142,7 +150,7 @@ int main( int argc, char *argv[] )
 	SudokuSolver *solver;
 	
 	if ( algorithm == 0 )
-		solver = new SudokuAntSystem( nAnts, q0, rho, 1.0f/board.CellCount(), evap);
+		solver = new SudokuAntSystem( nAnts, q0, rho, 1.0f/board.CellCount(), evap, coolingRate, stoppingTemp, initialTemp, saFreq);
 	else
 		solver = new BacktrackSearch();
 

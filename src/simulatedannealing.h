@@ -7,10 +7,13 @@ class SudokuSA
     Board bestSol;
     Board currentSol;
     int bestCost;
+    double coolingRate;
+    double stoppingTemp;
+    double initialTemp;
     double acceptanceProbability;
 
 public:	
-	SudokuSA(Board sol): sol(sol) {}
+	SudokuSA(Board sol, double coolingRate, double stoppingTemp, double InitialTemp): sol(sol), coolingRate(coolingRate), stoppingTemp(stoppingTemp),  initialTemp(InitialTemp) {}
     int Anneal();
     int ComputeCost();
     void FillEmptyCells();

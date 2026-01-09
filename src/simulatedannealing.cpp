@@ -10,9 +10,7 @@ int SudokuSA::Anneal()
 {
     FillEmptyCells();
     // cout << "\n" << sol.AsString(true);
-    double coolingRate = 0.995;
-    double stoppingTemp = 0.01;
-    double temp = 1.5;
+    double temp = initialTemp;
     int currentCost = ComputeCost();
     int worst = 0;
     int moves = 0;

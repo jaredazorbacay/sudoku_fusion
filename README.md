@@ -47,6 +47,14 @@ __--rho value__ set ACS rho parameter (which controls pheromone evaporation) - d
 
 __--evap f__ use value f for the best-value evaporation parameter. Default is 0.005
 
+__--t0 temp__ set the initial temperature of SA phase, default 1.5
+
+__--alpha value__ set the cooling rate of the SA phase, default 0.995
+
+__--t1 temp__ set the stopping temperature (stopping criteria) of the SA phase, default 0.01
+
+__--saFreq cycles__ set the frequency of the SA phase during ACS cycle, default 100 (every 100 ACS cycles)
+
 ## Examples
 
 Solve the 'platinum blond' puzzle using ACS, showing the initial constrained grid and the full solution

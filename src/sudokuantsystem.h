@@ -19,6 +19,10 @@ class SudokuAntSystem : public SudokuSolver
 	Timer solutionTimer;
 	float solTime;
 	int iter;
+	double coolingRate;
+    double stoppingTemp;
+    double initialTemp;
+	int saFreq;
 
 	std::vector<SudokuAnt*> antList;
 	std::mt19937 randGen; 
@@ -32,8 +36,8 @@ class SudokuAntSystem : public SudokuSolver
 	float PherAdd(int numCellsFixed);
 
 public:
-	SudokuAntSystem(int numAnts, float q0, float rho, float pher0, float bestEvap) : 
-		numAnts(numAnts), q0(q0), rho(rho), pher0(pher0), bestEvap(bestEvap)
+	SudokuAntSystem(int numAnts, float q0, float rho, float pher0, float bestEvap, double coolingRate, double stoppingTemp, double InitialTemp, int saFreq) : 
+		numAnts(numAnts), q0(q0), rho(rho), pher0(pher0), bestEvap(bestEvap), coolingRate(coolingRate), stoppingTemp(stoppingTemp),  initialTemp(InitialTemp), saFreq(saFreq)
 	{
 		for ( int i = 0; i < numAnts; i++ )
 			antList.push_back(new SudokuAnt(this));

@@ -9,7 +9,7 @@ def run_solver(file_path, timeout):
     cmd = [
         "./sudokusolver",
         "--file", file_path,
-        "--timeout", timeout, "--saFreq 1"
+        "--timeout", timeout, "--saFreq 0"
     ]
 
     try:
